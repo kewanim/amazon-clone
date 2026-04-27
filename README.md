@@ -70,7 +70,7 @@ STRIPE_KEY=sk_test_...
 PORT=6000
 ```
 
-**Client** — Firebase config values are hardcoded in `src/firebase.js` (for test projects only; use env vars in production).
+**Client** — Firebase config is in `src/Utility/firebase.js`. Firebase client-side config is designed to be public; security is enforced via Firestore rules.
 
 ## API Endpoints
 
