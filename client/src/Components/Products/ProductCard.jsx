@@ -72,7 +72,7 @@ function ProductCard({ product, flex, renderDesc, renderAdd }) {
 
             <div>
                 <h3>{title || 'No Title Available'}</h3>  
-                {renderDesc && <div style={{maxWidth:"750px"}}>{description}</div>}
+                {renderDesc && <div style={{maxWidth:"750px", paddingRight:"16px"}}>{description}</div>}
                 <div className={classes.rating}>
                     {/* rating */}
                     <Rating 

@@ -93,3 +93,17 @@
             flex-direction: column;
         }
     }
+
+/* Product detail layout: let text wrap instead of overflowing the window */
+.product__flexed{
+    height: auto;
+    min-height: 50vh;
+    padding: 20px;
+}
+.product__flexed > div{
+    flex: 1;
+    min-width: 0;
+}
+.product__flexed img{
+    flex-shrink: 0;
+}

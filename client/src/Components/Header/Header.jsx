@@ -1,3 +1,4 @@
+import usFlag from "../../assets/us-flag.svg";
 import React, { useContext } from 'react';
 import LowerHeader from "./LowerHeader";
 import classes from './Header.module.css';
@@ -46,7 +47,7 @@ const Header = () => {
                     {/* right side */}
                     <div className={classes.order__container}>
                         <Link to="" className={classes.language}>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1024px-Flag_of_the_United_States.svg.png" alt="US Flag"/>
+                            <img src={usFlag} alt="US Flag"/>
                             <select name='' id=''>
                                 <option value="">EN</option>
                             </select>

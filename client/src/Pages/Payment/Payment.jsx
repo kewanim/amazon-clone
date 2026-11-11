@@ -41,6 +41,7 @@ function Payment() {
     const handlePayment = async (e) => {
         e.preventDefault();
         try {
+        setCardError("");
         setProcessing(true);
 
         // STEP 1: Get client secret from backend
@@ -51,11 +52,16 @@ function Payment() {
         const clientSecret = response.data?.clientSecret;
 
         // STEP 2: Confirm payment on the client side
-        const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+        const { paymentIntent, error: stripeError } = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
             card: elements.getElement(CardElement),
             },
         });
+        if (stripeError) {
+            setCardError(stripeError.message);
+            setProcessing(false);
+            return;
+        }
 
         // STEP 3: Save order details to Firestore
         const userOrdersRef = collection(db, "users", user.uid, "orders");
@@ -74,6 +80,7 @@ function Payment() {
             navigate("/orders", {state: {msg:"You have placed your order."}})
         } catch (error) {
         console.error("Payment processing error:", error);
+        setCardError("Payment could not be completed. Please check your card details and try again.");
         setProcessing(false);
         }
     };

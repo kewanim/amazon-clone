@@ -66,10 +66,7 @@ function Auth() {
         <section className={classes.login}>
             {/* Logo */}
             <Link to={"/"}>
-                <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png"
-                    alt="Amazon Logo"
-                />
+                <span className={classes.logo_text}>shop<small>.clone</small></span>
             </Link>
 
             {/* Form */}
