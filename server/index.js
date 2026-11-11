@@ -15,15 +15,25 @@ app.get("/", (req, res) => {
 app.post("/payment/create", async (req, res) => {
   const total = req.query.total;
   if (total > 0) {
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount: total,
-      currency: "USD",
-    });
-    res.status(201).json({ clientSecret: paymentIntent.client_secret });
+    try {
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount: total,
+        currency: "USD",
+      });
+      res.status(201).json({ clientSecret: paymentIntent.client_secret });
+    } catch (err) {
+      console.error("Stripe error:", err.message);
+      res.status(500).json({ message: "Could not create payment." });
+    }
   } else {
     res.status(403).json({ message: "Total must be greater than 0." });
   }
 });
 
-const PORT = process.env.PORT || 6000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// Start the server only when run directly (Vercel imports the app instead)
+if (require.main === module) {
+  const PORT = process.env.PORT || 6000;
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
+
+module.exports = app;
