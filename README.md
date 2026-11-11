@@ -2,7 +2,7 @@
 
 A full-stack e-commerce application replicating core Amazon functionality — product browsing, cart management, Firebase authentication, and Stripe-powered checkout.
 
-**Live Demo:** [amazon-clone-kewani.netlify.app](https://amazon-clone-kewani.netlify.app) &nbsp;·&nbsp; **API:** [amazon-clone-o0vy.onrender.com](https://amazon-clone-o0vy.onrender.com)
+**Live Demo:** [amazon-clone-kewani.netlify.app](https://amazon-clone-kewani.netlify.app) &nbsp;·&nbsp; **API:** [kewani-amazon-api.vercel.app](https://kewani-amazon-api.vercel.app)
 
 ---
 
@@ -24,7 +24,7 @@ A full-stack e-commerce application replicating core Amazon functionality — pr
 | Auth & Database | Firebase Auth, Firestore |
 | Product Data | Fake Store API |
 | Frontend Hosting | Netlify |
-| Backend Hosting | Render |
+| Backend Hosting | Vercel (serverless Express) |
 
 ## Project Structure
 
@@ -82,7 +82,7 @@ PORT=6000
 ## Deployment
 
 - **Frontend** auto-deploys to Netlify on every push to `main`
-- **Backend** auto-deploys to Render on every push to `main`
+- **Backend** auto-deploys to Vercel on every push to `main`
 
 ---
 
