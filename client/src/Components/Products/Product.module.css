@@ -98,6 +98,7 @@
 .product__flexed{
     height: auto;
     min-height: 50vh;
+    box-sizing: border-box;
     padding: 20px;
 }
 .product__flexed > div{
